@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de Crédito Hipotecario BBVA</title>
+    <title>Simulador de Crédito BBVA</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Simulador de Crédito Hipotecario BBVA</h1>
+        <h1>Simulador de Crédito BBVA</h1>
     </header>
 
     <main>
         <section class="simulator-form">
-            <h2>Calcula tu Crédito Hipotecario</h2>
+            <h2>Calcula tu Crédito</h2>
             <form id="mortgage-form">
                 <label for="loan-type">Tipo de crédito:</label>
                 <select id="loan-type" name="loan-type" required>
@@ -22,6 +22,12 @@
                     <option value="automotriz">Automotriz</option>
                 </select>
                 
+                <label for="capital-type">Tipo de capital:</label>
+                <select id="capital-type" name="capital-type" required>
+                    <option value="capital">Capital</option>
+                    <option value="inversion">Inversión</option>
+                </select>
+
                 <label for="loan-amount">Monto solicitado:</label>
                 <input type="number" id="loan-amount" name="loan-amount" required>
 

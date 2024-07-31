@@ -1,4 +1,6 @@
 function calculateMortgage() {
+    const loanType = document.getElementById('loan-type').value;
+    const capitalType = document.getElementById('capital-type').value;
     const loanAmount = parseFloat(document.getElementById('loan-amount').value);
     const downPayment = parseFloat(document.getElementById('down-payment').value);
     const totalLoanAmount = loanAmount - downPayment;
