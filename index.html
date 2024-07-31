@@ -15,29 +15,28 @@
         <section class="simulator-form">
             <h2>Calcula tu Crédito Hipotecario</h2>
             <form id="mortgage-form">
-                <label for="property-value">Valor de la propiedad:</label>
-                <input type="number" id="property-value" name="property-value" required>
+                <label for="loan-type">Tipo de crédito:</label>
+                <select id="loan-type" name="loan-type" required>
+                    <option value="hipotecario">Hipotecario</option>
+                    <option value="personal">Personal</option>
+                    <option value="automotriz">Automotriz</option>
+                </select>
                 
+                <label for="loan-amount">Monto solicitado:</label>
+                <input type="number" id="loan-amount" name="loan-amount" required>
+
                 <label for="down-payment">Pago inicial:</label>
                 <input type="number" id="down-payment" name="down-payment" required>
                 
-                <label>¿Cuánto tiempo necesitas para pagar?</label>
-                <div>
-                    <input type="radio" id="term-20" name="loan-term" value="20" required>
-                    <label for="term-20">20 años</label>
-                </div>
-                <div>
-                    <input type="radio" id="term-15" name="loan-term" value="15">
-                    <label for="term-15">15 años</label>
-                </div>
-                <div>
-                    <input type="radio" id="term-10" name="loan-term" value="10">
-                    <label for="term-10">10 años</label>
-                </div>
-                <div>
-                    <input type="radio" id="term-5" name="loan-term" value="5">
-                    <label for="term-5">5 años</label>
-                </div>
+                <label for="loan-term">Plazo:</label>
+                <input type="number" id="loan-term" name="loan-term" required>
+                <select id="term-unit" name="term-unit" required>
+                    <option value="meses">Meses</option>
+                    <option value="años">Años</option>
+                    <option value="trimestres">Trimestres</option>
+                    <option value="semestres">Semestres</option>
+                    <option value="cuatrimestres">Cuatrimestres</option>
+                </select>
                 
                 <label for="interest-rate">Tasa de interés (%):</label>
                 <input type="number" step="0.01" id="interest-rate" name="interest-rate" required>
@@ -49,6 +48,18 @@
         <section class="result" id="result">
             <h2>Resultado</h2>
             <p id="monthly-payment">Pago mensual: </p>
+            <table id="amortization-schedule">
+                <thead>
+                    <tr>
+                        <th>Pago #</th>
+                        <th>Principal</th>
+                        <th>Interés</th>
+                        <th>Total</th>
+                        <th>Saldo</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
         </section>
     </main>
 

@@ -29,7 +29,7 @@ label {
     margin: 0.5rem 0 0.25rem;
 }
 
-input {
+input, select {
     width: 100%;
     padding: 0.5rem;
     margin-bottom: 1rem;
@@ -59,12 +59,24 @@ button:hover {
     border-radius: 4px;
 }
 
+#amortization-schedule {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#amortization-schedule th, #amortization-schedule td {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    text-align: right;
+}
+
 footer {
     text-align: center;
     padding: 1rem 0;
     background-color: #0033a0;
     color: white;
-    position: fixed;
-    bottom: 0;
+    /* position: fixed; */
+    /* bottom: 0; */
     width: 100%;
 }
