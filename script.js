@@ -32,13 +32,17 @@ function calcularCredito() {
 
     const pagoMensual = (montoTotalCredito * tasaInteres) / (1 - Math.pow(1 + tasaInteres, -numeroPagos));
 
-    document.getElementById('pago-mensual').textContent = `Pago mensual: ${pagoMensual.toFixed(2)} USD`;
+    document.getElementById('pago-mensual').textContent = `Pago mensual: ${pagoMensual.toFixed(2)}`;
 
     // TABLOIDE SIUUUUUUUUUUU
     const tablaAmortizacion = document.querySelector('#tabla-amortizacion tbody');
     tablaAmortizacion.innerHTML = '';
 
     let saldo = montoTotalCredito;
+    let totalPrincipal = 0;
+    let totalInteres = 0;
+    let totalPago = 0;
+
     for (let i = 1; i <= numeroPagos; i++) {
         const pagoInteres = saldo * tasaInteres;
         const pagoPrincipal = pagoMensual - pagoInteres;
@@ -50,5 +54,17 @@ function calcularCredito() {
         fila.insertCell(2).textContent = pagoInteres.toFixed(2);
         fila.insertCell(3).textContent = pagoMensual.toFixed(2);
         fila.insertCell(4).textContent = saldo.toFixed(2);
+
+        totalPrincipal += pagoPrincipal;
+        totalInteres += pagoInteres;
+        totalPago += pagoMensual;
     }
+
+    // Insertar fila de totales
+    const filaTotales = tablaAmortizacion.insertRow();
+    filaTotales.insertCell(0).textContent = 'Totales';
+    filaTotales.insertCell(1).textContent = totalPrincipal.toFixed(2);
+    filaTotales.insertCell(2).textContent = totalInteres.toFixed(2);
+    filaTotales.insertCell(3).textContent = totalPago.toFixed(2);
+    filaTotales.insertCell(4).textContent = ''; // Dejar en blanco
 }
