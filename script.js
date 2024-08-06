@@ -1,55 +1,54 @@
-function calculateMortgage() {
-    const loanType = document.getElementById('loan-type').value;
-    const capitalType = document.getElementById('capital-type').value;
-    const loanAmount = parseFloat(document.getElementById('loan-amount').value);
-    const downPayment = parseFloat(document.getElementById('down-payment').value);
-    const totalLoanAmount = loanAmount - downPayment;
+function calcularCredito() {
+    const tipoCredito = document.getElementById('tipo-credito').value;
+    const montoSolicitado = parseFloat(document.getElementById('monto-solicitado').value);
+    const pagoInicial = parseFloat(document.getElementById('pago-inicial').value);
+    const montoTotalCredito = montoSolicitado - pagoInicial;
 
-    const loanTerm = parseInt(document.getElementById('loan-term').value);
-    const termUnit = document.getElementById('term-unit').value;
-    const interestRate = parseFloat(document.getElementById('interest-rate').value) / 100 / 12;
+    const plazo = parseInt(document.getElementById('plazo').value);
+    const unidadPlazo = document.getElementById('unidad-plazo').value;
+    const tasaInteres = parseFloat(document.getElementById('tasa-interes').value) / 100 / 12;
 
-    let numberOfPayments;
+    let numeroPagos;
 
-    switch (termUnit) {
+    switch (unidadPlazo) {
         case 'meses':
-            numberOfPayments = loanTerm;
+            numeroPagos = plazo;
             break;
         case 'años':
-            numberOfPayments = loanTerm * 12;
+            numeroPagos = plazo * 12;
             break;
         case 'trimestres':
-            numberOfPayments = loanTerm * 3;
+            numeroPagos = plazo * 3;
             break;
         case 'semestres':
-            numberOfPayments = loanTerm * 6;
+            numeroPagos = plazo * 6;
             break;
         case 'cuatrimestres':
-            numberOfPayments = loanTerm * 4;
+            numeroPagos = plazo * 4;
             break;
         default:
-            numberOfPayments = loanTerm;
+            numeroPagos = plazo;
     }
 
-    const monthlyPayment = (totalLoanAmount * interestRate) / (1 - Math.pow(1 + interestRate, -numberOfPayments));
+    const pagoMensual = (montoTotalCredito * tasaInteres) / (1 - Math.pow(1 + tasaInteres, -numeroPagos));
 
-    document.getElementById('monthly-payment').textContent = `Pago mensual: ${monthlyPayment.toFixed(2)} USD`;
+    document.getElementById('pago-mensual').textContent = `Pago mensual: ${pagoMensual.toFixed(2)} USD`;
 
-    // Generar tabla de amortización
-    const amortizationSchedule = document.querySelector('#amortization-schedule tbody');
-    amortizationSchedule.innerHTML = '';
+    // TABLOIDE SIUUUUUUUUUUU
+    const tablaAmortizacion = document.querySelector('#tabla-amortizacion tbody');
+    tablaAmortizacion.innerHTML = '';
 
-    let balance = totalLoanAmount;
-    for (let i = 1; i <= numberOfPayments; i++) {
-        const interestPayment = balance * interestRate;
-        const principalPayment = monthlyPayment - interestPayment;
-        balance -= principalPayment;
+    let saldo = montoTotalCredito;
+    for (let i = 1; i <= numeroPagos; i++) {
+        const pagoInteres = saldo * tasaInteres;
+        const pagoPrincipal = pagoMensual - pagoInteres;
+        saldo -= pagoPrincipal;
 
-        const row = amortizationSchedule.insertRow();
-        row.insertCell(0).textContent = i;
-        row.insertCell(1).textContent = principalPayment.toFixed(2);
-        row.insertCell(2).textContent = interestPayment.toFixed(2);
-        row.insertCell(3).textContent = monthlyPayment.toFixed(2);
-        row.insertCell(4).textContent = balance.toFixed(2);
+        const fila = tablaAmortizacion.insertRow();
+        fila.insertCell(0).textContent = i;
+        fila.insertCell(1).textContent = pagoPrincipal.toFixed(2);
+        fila.insertCell(2).textContent = pagoInteres.toFixed(2);
+        fila.insertCell(3).textContent = pagoMensual.toFixed(2);
+        fila.insertCell(4).textContent = saldo.toFixed(2);
     }
 }

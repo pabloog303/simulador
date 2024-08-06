@@ -12,31 +12,23 @@
     </header>
 
     <main>
-        <section class="simulator-form">
+        <section class="formulario-simulador">
             <h2>Calcula tu Crédito</h2>
-            <form id="mortgage-form">
-                <label for="loan-type">Tipo de crédito:</label>
-                <select id="loan-type" name="loan-type" required>
-                    <option value="hipotecario">Hipotecario</option>
+            <form id="formulario-credito">
+                <label for="tipo-credito">Tipo de crédito:</label>
+                <select id="tipo-credito" name="tipo-credito" required>
                     <option value="personal">Personal</option>
-                    <option value="automotriz">Automotriz</option>
-                </select>
-                
-                <label for="capital-type">Tipo de capital:</label>
-                <select id="capital-type" name="capital-type" required>
-                    <option value="capital">Capital</option>
-                    <option value="inversion">Inversión</option>
                 </select>
 
-                <label for="loan-amount">Monto solicitado:</label>
-                <input type="number" id="loan-amount" name="loan-amount" required>
+                <label for="monto-solicitado">Monto solicitado:</label>
+                <input type="number" id="monto-solicitado" name="monto-solicitado" required>
 
-                <label for="down-payment">Pago inicial:</label>
-                <input type="number" id="down-payment" name="down-payment" required>
+                <label for="pago-inicial">Pago inicial:</label>
+                <input type="number" id="pago-inicial" name="pago-inicial" required>
                 
-                <label for="loan-term">Plazo:</label>
-                <input type="number" id="loan-term" name="loan-term" required>
-                <select id="term-unit" name="term-unit" required>
+                <label for="plazo">Plazo:</label>
+                <input type="number" id="plazo" name="plazo" required>
+                <select id="unidad-plazo" name="unidad-plazo" required>
                     <option value="meses">Meses</option>
                     <option value="años">Años</option>
                     <option value="trimestres">Trimestres</option>
@@ -44,17 +36,17 @@
                     <option value="cuatrimestres">Cuatrimestres</option>
                 </select>
                 
-                <label for="interest-rate">Tasa de interés (%):</label>
-                <input type="number" step="0.01" id="interest-rate" name="interest-rate" required>
+                <label for="tasa-interes">Tasa de interés (%):</label>
+                <input type="number" step="0.01" id="tasa-interes" name="tasa-interes" required>
                 
-                <button type="button" onclick="calculateMortgage()">Calcular</button>
+                <button type="button" onclick="calcularCredito()">Calcular</button>
             </form>
         </section>
 
-        <section class="result" id="result">
+        <section class="resultado" id="resultado">
             <h2>Resultado</h2>
-            <p id="monthly-payment">Pago mensual: </p>
-            <table id="amortization-schedule">
+            <p id="pago-mensual">Pago mensual: </p>
+            <table id="tabla-amortizacion">
                 <thead>
                     <tr>
                         <th>Pago #</th>
@@ -70,7 +62,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 BBVA. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Cesun. Todos los derechos reservados.</p>
     </footer>
 
     <script src="script.js"></script>

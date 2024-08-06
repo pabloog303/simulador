@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #094293;
+}
+
+header {
+    background-color: #003468;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 1rem;
+}
+
+main .content {
+    background: rgba(0, 51, 160, 0.8); /* Fondo semitransparente */
+    padding: 2rem;
+    border-radius: 8px;
+    color: white;
+    max-width: 600px;
+}
+
+main .content h2 {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+main .content p {
+    margin: 1rem 0;
+    font-size: 1.5rem;
+}
+
+.link-button {
+    display: inline-block;
+    margin: 1rem 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #003d79;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+.link-button:hover {
+    background-color: #003468;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.image-container {
+    max-width: 600px;
+    flex-shrink: 0;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #003468;
+    color: white;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
